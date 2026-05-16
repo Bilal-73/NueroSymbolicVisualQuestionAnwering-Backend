@@ -1,6 +1,6 @@
-# NSVQA-with-Reasoning - Neural Semantic Visual Question Answering Backend
+# NSVQA-with-Reasoning - Neuro Symbolic Visual Question Answering Backend
 
-A comprehensive Flask-based backend system for Neural Semantic Visual Question Answering (NSVQA) with advanced reasoning capabilities. This system combines multiple question-answering strategies (CFG-based, Regex-based, ML-based, and task-specific) with visual scene understanding, knowledge graphs, and emotion detection.
+A comprehensive Flask-based backend system for Neuro Symbolic Visual Question Answering (NSVQA) with advanced reasoning capabilities. This system combines multiple question-answering strategies (CFG-based, Regex-based, ML-based, and task-specific) with visual scene understanding, knowledge graphs, and emotion detection.
 
 ## Project Overview
 
