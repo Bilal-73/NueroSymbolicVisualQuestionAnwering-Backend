@@ -1,0 +1,74 @@
+
+---------------------------------------------------------------
+
+-- Create Database: NSVQA_APP
+CREATE DATABASE NSVQA_APP;
+USE NSVQA_APP;
+
+-- Assistant Table
+CREATE TABLE Assistant (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    gender ENUM('Male','Female','Other'),
+    pic VARCHAR(255),
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Blind Table
+CREATE TABLE Blind (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    gender ENUM('Male','Female','Other'),
+    pic VARCHAR(255),
+    assistant_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (assistant_id) REFERENCES Assistant(id) ON DELETE SET NULL
+);
+
+-- BlindHistory Table
+CREATE TABLE BlindHistory (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    question TEXT NOT NULL,
+    answer TEXT,
+    image_path VARCHAR(255),
+    blind_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (blind_id) REFERENCES Blind(id) ON DELETE CASCADE
+);
+
+-- Contact Table
+CREATE TABLE Contact (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    blind_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    relation VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (blind_id) REFERENCES Blind(id) ON DELETE CASCADE
+);
+
+-- ContactPics Table
+CREATE TABLE ContactPics (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    contact_id INT NOT NULL,
+    pic_url VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (contact_id) REFERENCES Contact(id) ON DELETE CASCADE
+);
+
+-- CFG Rules Table
+CREATE TABLE CFGRules (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    lhs VARCHAR(50) NOT NULL,
+    rhs VARCHAR(255) NOT NULL
+);
+
+-- Vocabulary Table
+CREATE TABLE Vocabulary (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    pos_tag VARCHAR(50) NOT NULL,
+    word VARCHAR(100) NOT NULL
+);
