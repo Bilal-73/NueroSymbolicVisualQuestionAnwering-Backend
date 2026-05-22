@@ -422,4 +422,4 @@ docker run -p 5000:5000 nsvqa-backend
 
 For issues, questions, or contributions:
 - GitHub Issues: https://github.com/Bilal-73/NSVQA-with-Reasoning/issues
-- Email: [contact@example.com]
+- Email: [acc.bilalimran@example.com]
