@@ -416,7 +416,7 @@ docker run -p 5000:5000 nsvqa-backend
 ## Authors
 
 - **Team** - Bilal-73 (GitHub)
-- **Contributors** - Fahad, Danish, and others
+- **Contributors** - Fahad, Azka, Daniyal
 
 ## Support & Contact
 
